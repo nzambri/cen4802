@@ -57,4 +57,35 @@ public class Fibonacci {
 
         return nthFibonacciNumber;
     }
+
+    /**
+     * Calculates the Fibonacci number at the specified index.
+     *
+     * @param index The index of the Fibonacci number to calculate (non-negative integer).
+     * @return The Fibonacci number at the specified index.
+     * @throws IllegalArgumentException if the index is negative.
+     */
+    public static int calculateFibonacci(int index) throws IllegalArgumentException {
+        if (index < 0) {
+            throw new IllegalArgumentException("Index must be a non-negative integer.");
+        }
+
+        if (index == 0) {
+            return 0;
+        } else if (index == 1) {
+            return 1;
+        } else {
+            int a = 0;
+            int b = 1;
+            int result = 0;
+
+            for (int i = 2; i <= index; i++) {
+                result = a + b;
+                a = b;
+                b = result;
+            }
+
+            return result;
+        }
+    }
 }
